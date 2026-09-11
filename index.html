@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CTRPRE - Your Personal Investment Companion</title>
+<meta name="description" content="CTRPRE is a comprehensive iOS investment companion for tracking global equities, logging trades, and analyzing portfolio performance." />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    background: #0a0a0f;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 100px;
+    font-size: 14px;
+    color: #a5b4fc;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+  .logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 30px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
+  }
+  .logo-text {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  h1 {
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .tagline {
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: #94a3b8;
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+  .cta {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    transition: transform 0.2s;
+  }
+  .cta:hover { transform: translateY(-2px); }
+  .nav {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+    z-index: 10;
+  }
+  .nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav a:hover { color: #ffffff; }
+
+  section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  .feature {
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .feature:hover {
+    transform: translateY(-5px);
+    border-color: rgba(99, 102, 241, 0.4);
+  }
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .feature h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .feature p {
+    color: #94a3b8;
+    font-size: 15px;
+  }
+  footer {
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: #64748b;
+    font-size: 14px;
+  }
+  footer a {
+    color: #a5b4fc;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+  </nav>
+
+  <div class="badge">NOW ON APP STORE</div>
+  <div class="logo"><span class="logo-text">CTRPRE</span></div>
+  <h1>CTRPRE</h1>
+  <p class="tagline">Your personal investment companion — track global equities, log every trade, and analyze your portfolio with elegance.</p>
+  <a href="support.html" class="cta">Get in Touch</a>
+</div>
+
+<section>
+  <h2>Everything You Need to Invest Smarter</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">📈</div>
+      <h3>Global Market Dashboard</h3>
+      <p>Track global indices, top movers across sectors, and the latest market news — all powered by smooth native charts.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📓</div>
+      <h3>Trade Journaling</h3>
+      <p>Log every buy and sell order with quantity, price, fees, notes, and photo attachments. Automatic cost basis and P/L tracking.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">💼</div>
+      <h3>Portfolio Builder</h3>
+      <p>Construct diversified allocations with custom weights. Visualize your mix with interactive donut charts and live estimated returns.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🧮</div>
+      <h3>Financial Calculators</h3>
+      <p>Compound growth projector, annualized return and CAGR calculator, and a 12-currency converter built right in.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⭐</div>
+      <h3>Smart Watchlist</h3>
+      <p>Keep your favorite symbols one tap from the home screen. Quick access to live quotes and detailed charts.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔒</div>
+      <h3>100% Private</h3>
+      <p>All data stays on your device. No account, no sign-in, no cloud sync. Maximum privacy by design.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 CTRPRE. All rights reserved.</p>
+  <p style="margin-top: 15px;">
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="terms.html">Terms of Use</a> ·
+    <a href="support.html">Support</a>
+  </p>
+</footer>
+
+</body>
+</html>
